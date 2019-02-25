@@ -213,6 +213,8 @@ module.exports = ({commandRegistry, commandInstaller, config, notificationManage
         'editor:transpose': -> @transpose()
         'editor:upper-case': -> @upperCase()
         'editor:lower-case': -> @lowerCase()
+        'editor:line-highlight': -> @highlightLine()
+        'editor:line-delete-highlight': -> @deleteLineHighlight()
       }
     ),
     false
