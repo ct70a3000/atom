@@ -32,6 +32,7 @@
   'ctrl-n': 'application:new-file'
   'ctrl-s': 'core:save'
   'ctrl-shift-s': 'core:save-as'
+  'ctrl-alt-s': 'window:save-all'
   'ctrl-f4': 'core:close'
   'ctrl-w': 'core:close'
   'ctrl-z': 'core:undo'
