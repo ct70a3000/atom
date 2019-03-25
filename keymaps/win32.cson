@@ -124,6 +124,9 @@
   'ctrl-<': 'editor:scroll-to-cursor'
   'ctrl-alt-shift-[': 'editor:fold-selection'
 
+  'ctrl-shift-h': 'editor:line-highlight'
+  'ctrl-alt-h': 'editor:line-delete-highlight'
+
   # Sublime Parity
   'ctrl-enter': 'editor:newline-below'
   'ctrl-shift-enter': 'editor:newline-above'

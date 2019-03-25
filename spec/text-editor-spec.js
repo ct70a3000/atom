@@ -5938,6 +5938,41 @@ describe('TextEditor', () => {
     })
   })
 
+  describe('.highlightLine()', () => {
+    describe('when there is no selection', () => {
+      it('highlights the current line', () => {
+        editor.buffer.setText('ABC')
+        editor.setCursorScreenPosition([0, 1])
+        editor.highlightLine()
+        expect(editor.getLineDecorations()[0].properties.class).toEqual("line-highlight")
+      })
+    })
+
+    describe('when there is a selection', () => {
+      it('highlights the lines on the current selection', () => {
+        editor.buffer.setText('ABC\nABC')
+        editor.setSelectedBufferRange([[0, 0], [1, 2]])
+        editor.highlightLine()
+        expect(editor.getLineDecorations()[0].properties.class).toEqual("line-highlight")
+        expect(editor.getSelectedBufferRange()).toEqual([[0, 0], [1, 2]])
+      })
+    })
+  })
+
+  describe('.deleteLineHighlight()', () => {
+    it('removes all line highlightings', () => {
+      editor.buffer.setText('ABC\nABC')
+      editor.setCursorScreenPosition([0, 1])
+      editor.highlightLine()
+      editor.setCursorScreenPosition([1, 1])
+      editor.highlightLine()
+      expect(editor.getLineDecorations()[0].properties.class).toEqual("line-highlight")
+      expect(editor.getLineDecorations()[1].properties.class).toEqual("line-highlight")
+      editor.deleteLineHighlight()
+      expect(editor.getLineDecorations().length).toEqual(0)
+    })
+  })
+
   describe('.setTabLength(tabLength)', () => {
     it('clips atomic soft tabs to the given tab length', () => {
       expect(editor.getTabLength()).toBe(2)

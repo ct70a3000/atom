@@ -62,6 +62,9 @@
           { label: 'Du&plicate Lines', command: 'editor:duplicate-lines' }
           { label: 'D&elete Line', command: 'editor:delete-line' }
           { label: '&Join Lines', command: 'editor:join-lines' }
+          { type: 'separator' }
+          { label: '&Highlight', command: 'editor:line-highlight' }
+          { label: '&Delete highlight', command: 'editor:line-delete-highlight' }
         ]
       }
       {

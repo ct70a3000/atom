@@ -1781,6 +1781,22 @@ class TextEditor {
     this.replaceSelectedText({selectWordIfEmpty: true}, text => text.toLowerCase(options))
   }
 
+  // Extended: Add highlighting for the line(s).
+  highlightLine () {
+    const range = this.getSelectedBufferRange()
+    const marker =  this.markBufferRange(range)
+    this.decorateMarker(marker, {type: 'line', class: 'line-highlight'})
+  }
+
+  // Extended: Delete line highlightings.
+  deleteLineHighlight () {
+    const lineDecorations = this.getLineDecorations({class: 'line-highlight'})
+    console.log("lineDecorations", lineDecorations)
+    for (let i = 0; i < lineDecorations.length; i++) {
+      lineDecorations[i].destroy();
+    }
+  }
+
   // Extended: Toggle line comments for rows intersecting selections.
   //
   // If the current grammar doesn't support comments, does nothing.
